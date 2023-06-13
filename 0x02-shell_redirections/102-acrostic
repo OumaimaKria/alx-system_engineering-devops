@@ -1,16 +1,2 @@
 #!/bin/bash
-
-# Read the input from stdin
-while IFS= read -r line; do
-  # Get the first character of each line
-  first_char="${line:0:1}"
-
-  # Check if the first character is a letter
-  if [[ $first_char =~ [[:alpha:]] ]]; then
-    # Append the first character to the decoded message
-    decoded_message+="$first_char"
-  fi
-done
-
-# Display the decoded message
-echo "$decoded_message"
+cut -c 1 | paste -s -d ''

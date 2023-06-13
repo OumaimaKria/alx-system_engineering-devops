@@ -1,8 +1,2 @@
 #!/bin/bash
-
-# Find all .gif files, including hidden files, and sort them by byte values (case-insensitive)
-find . -type f -name "*.gif" | sort -f |
-while read -r file; do
-  # Remove the .gif extension and display the file name
-  echo "${file%.*}"
-done
+find -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' -f 2- | rev | LC_ALL=C sort -f
